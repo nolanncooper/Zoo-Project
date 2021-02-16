@@ -7,5 +7,9 @@ public class Casino {
 		System.out.println("2.) Skiball");
 		System.out.println("3.) War");
 		System.out.println("4.) Inheritance Quizzer");
+		System.out.println("5.) Blackjack");
+		System.out.println("6.) Chess (Tommy do your thing)" );
+		System.out.println();
+		System.out.println("Please type a number.");
 	}
 }
