@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class APSC {
+public class SkiballMain {
 	private static Scanner userInput = new Scanner(System.in);
 	private static int [][]myMatrix; 
 	private static int response = 0;
@@ -12,7 +12,7 @@ public class APSC {
 	private static int ballCount = 0;
 	private static int pointCounter = 0;
 	private static String [][]stringMatrix;
-	public static void main(String[] args) { 
+	public static void main() { 
 		myMatrix = new int [7][7];
 		stringMatrix = new String [7][7];
 		createMatrix();
