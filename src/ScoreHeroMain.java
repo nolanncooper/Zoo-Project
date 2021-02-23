@@ -37,7 +37,7 @@ public class ScoreHeroMain {
 		for(int ps = 0; ps < playerSheetsArray.length; ps++) {
 			playerSheetsArray[ps] = playerFile.nextLine();
 		}
-		System.out.println();
+		
 		System.out.println("You'll be competing with some of the greatest teams the football world has ever seen. Press enter to view the available teams.");
 		Scanner blah = new Scanner(System.in);
 		String bla = blah.nextLine();
@@ -47,13 +47,13 @@ public class ScoreHeroMain {
 		System.out.println("To select the team you would like to use, simply input its name.");
 		Scanner teamInput = new Scanner(System.in);
 		userTeam = teamInput.nextLine();
+		SpaceAdder.addSpace();
 		
 		for(int z = 0; z <playerSheetsArray.length; z++) {
 			if(playerSheetsArray[z].equals(userTeam)) {
 				teamLo = z;
 			}
 		}
-		System.out.println();
 		System.out.println("You have selected the team: " + userTeam);
 		System.out.println("This team includes the following superstars: ");
 		for(int x = (teamLo+1); x < (teamLo + 6); x++) {
@@ -137,6 +137,7 @@ public class ScoreHeroMain {
 			mainScreen.printScreen();
 			System.out.println("Number of shots taken : " + shotCount);
 			System.out.println("Number of Goals Scored: " + userGoals);
+			SpaceAdder.addSpace();
 			
 		}
 		
@@ -386,17 +387,3 @@ public class ScoreHeroMain {
 	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
