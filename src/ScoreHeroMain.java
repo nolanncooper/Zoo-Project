@@ -10,7 +10,7 @@ public class ScoreHeroMain {
 	public static String computerTeam = "";
 	public static String [] playerSheetsArray = new String [139];
 	public static int teamLo = 0;
-	public static void ScoreHeroRun() throws IOException {
+	public static void ScoreHeroRun(int win) throws IOException {
 		instructions();
 		teamSelect();
 		play();

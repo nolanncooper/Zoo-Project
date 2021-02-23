@@ -17,8 +17,8 @@ public class Main {
 	}
 	public static void intro() {
 		Scanner userInput = new Scanner(System.in);
-		System.out.println("Welcome to your own personal Sky Zoo™.");
-		Speaker.speak("Welcome to your own personal Sky Zoo™.");
+		System.out.println("Welcome to your own personal Sky Zoo.");
+		Speaker.speak("Welcome to your own personal Sky Zoo.");
 		System.out.println("It is your job to develop and build your zoo from a simple petting zoo, to a state-of-the-art animal habitat. Each time you collect items from an animal it ages.");
 		Speaker.speak("It is your job to develop and build your zoo from a simple petting zoo, to a state-of-the-art animal habitat. Each time you collect items from an animal it ages.");
 		System.out.println("First and foremost, I need to know how much money you are currently willing to use in order to fund the development of your zoo.");
@@ -68,13 +68,16 @@ public class Main {
 			
 			if(buff.getNumberOf() == 0 && zeb.getNumberOf()== 0) {
 				System.out.println("Congratulations, you are a complete failure...GAME OVER");
+				Speaker.speak("Congratulations, you are a complete failure...GAME OVER");
 				isPlaying = true;
 			}
 			else if(buff.getNumberOf() == 0) {
 				System.out.println("Looks life you'll only be working with the good old zebra. Type Zebra.");
+				Speaker.speak("Looks life you'll only be working with the good old zebra. Type Zebra.");
 			}
 			else if(zeb.getNumberOf() == 0) {
 				System.out.println("Looks life you'll only be working with the good old buffalo. Type Buffalo.");
+				Speaker.speak("Looks life you'll only be working with the good old buffalo. Type Buffalo.");
 
 			}
 			else if(buff.getNumberOf() != 0 && zeb.getNumberOf()!= 0) {
@@ -109,24 +112,33 @@ public class Main {
 			if(actionChoice == 2) {
 				 bruh = "sell";
 				System.out.println("You have decided to " + bruh +" " + animalInput);
+				Speaker.speak("You have decided to " + bruh +" " + animalInput);
 			}
 			if(actionChoice == 3) {
 				 bruh = "purchase";
 				 System.out.println("You have decided to " + bruh +" " + animalInput);
+				 Speaker.speak("You have decided to " + bruh +" " + animalInput);
 			}
 			if(actionChoice == 4) {
 				 bruh = "collect";
 				System.out.println("You have decided to " + bruh +" " + animalInput);
+				Speaker.speak("You have decided to " + bruh +" " + animalInput);
 
 			}
 			if(actionChoice == 5) {
 				 bruh = "quit";
 				 isPlaying = true;
 				System.out.println("You have decided to " + bruh +" " + animalInput);
+				Speaker.speak("You have decided to " + bruh +" " + animalInput);
 
 			}
 			if(actionChoice == 6) {
-				Casino.CasinoMain();
+				if(animalInput.equals(buff.getAnimalType())) {
+					Casino.CasinoMain(buff.getBalance());
+				}
+				if(animalInput.equals(zeb.getAnimalType())) {
+					Casino.CasinoMain(zeb.getBalance());
+				}
 			}
 			System.out.println();
 			
@@ -135,14 +147,16 @@ public class Main {
 				 if(animalInput.equals(buff.getAnimalType())) {
 						buff.feed();
 						if(buff.getHungerValue() <= 30) {
-							System.out.println("C'mon, you need to feed the animal... GAME OVER");
+							System.out.println("Come on, you need to feed the animal... GAME OVER");
+							Speaker.speak("Come on, you need to feed the animal... GAME OVER");
 							isPlaying = true;
 						}
 					}
 				 if(animalInput.equals(zeb.getAnimalType())) {
 					 	zeb.feed();
 					 	if(zeb.getHungerValue() <= 30) {
-							System.out.println("C'mon, you need to feed the animal... GAME OVER");
+							System.out.println("Come on, you need to feed the animal... GAME OVER");
+							Speaker.speak("Come on, you need to feed the animal... GAME OVER");
 							isPlaying = true;
 						}
 				 }
@@ -151,10 +165,12 @@ public class Main {
 				if(animalInput.equals(buff.getAnimalType())) {
 					buff.sell();
 					System.out.println("You now have: " + buff.getNumberOf() + " " + buff.getAnimalType());
+					Speaker.speak("You now have: " + buff.getNumberOf() + " " + buff.getAnimalType());
 				}
 			 if(animalInput.equals(zeb.getAnimalType())) {
 				 	zeb.sell();
 					System.out.println("You now have: " + zeb.getNumberOf() + " " +zeb.getAnimalType());
+					Speaker.speak("You now have: " + zeb.getNumberOf() + " " +zeb.getAnimalType());
 			 }
 			}
 			
@@ -172,6 +188,7 @@ public class Main {
 						buff.collectItems();
 						if(buff.getAge() > buff.getAvgLifeSpan()) {
 							System.out.println("I'm afraid you've worked the animal a bit too hard. Nice one. Media didn't like that you killed an animal... GAME OVER");
+							Speaker.speak("I'm afraid you've worked the animal a bit too hard. Nice one. Media didn't like that you killed an animal... GAME OVER");
 							isPlaying = true;
 						}
 					}
@@ -179,6 +196,7 @@ public class Main {
 					 	zeb.collectItems();
 					 	if(zeb.getAge() > zeb.getAvgLifeSpan()) {
 							System.out.println("I'm afraid you've worked the animal a bit too hard. Nice one. Media didn't like that you killed an animal... GAME OVER");
+							Speaker.speak("I'm afraid you've worked the animal a bit too hard. Nice one. Media didn't like that you killed an animal... GAME OVER");
 							isPlaying = true;
 						}
 					 	
@@ -186,6 +204,7 @@ public class Main {
 			}
 		}
 		System.out.println("Not going to lie, you kinda sucked. Better luck next time.");
+		Speaker.speak("Not going to lie, you kinda sucked. Better luck next time.");
 		 
 		
 		
