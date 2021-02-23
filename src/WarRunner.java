@@ -2,7 +2,7 @@ public class WarRunner {
 	private static Deck ogDeck = new Deck();
 	private static Deck player1Deck = new Deck();
 	private static Deck player2Deck = new Deck();
-	public static void main(String [] args) {
+	public static void main() {
 		instructions();
 		setupGame();
 		playGame();
