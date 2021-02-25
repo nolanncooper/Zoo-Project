@@ -20,6 +20,7 @@ public abstract class Animal {
 		balance += monetaryValue;
 		numberOf -= 1;
 		hungerValue-=5;
+		Main.zooBalance+= monetaryValue;
 
 	}
 	public void purchase() {
@@ -28,6 +29,7 @@ public abstract class Animal {
 		hungerValue-=5;
 		numberOf+=1;
 		System.out.println("You're up to: " + numberOf + " " + animalType);
+		Main.zooBalance-=monetaryValue;
 
 	}
 
@@ -35,6 +37,7 @@ public abstract class Animal {
 		balance += (income * numberOf);
 		age += 1;
 		hungerValue-=5;
+		Main.zooBalance+= (income * numberOf);
 
 
 	}
