@@ -1,4 +1,3 @@
-
 public class Zebra extends Animal{
 	protected String [] animalPic = {"       _,,", "      \"-.\\=", "         \\\\=   _.~", "        _|/||||)_","        \\        \\"};
 
@@ -24,8 +23,8 @@ public class Zebra extends Animal{
 	@Override
 	public void collectItems() {
 		super.collectItems();
-		System.out.println("This " + animalType + " will produce $" + (numberOf * income) + " per opening.");
-		System.out.println(balance);
+		System.out.println("This " + animalType + " will produce $" + (numberOf*income) + " per opening.");
+		System.out.println("Your current balance is: " + Main.zooBalance);
 		
 		
 	}
@@ -34,8 +33,13 @@ public class Zebra extends Animal{
 	public void feed() {
 		super.feed();
 		System.out.println("A " + animalType + " requires food every day.");
+		Speaker.speak("A " + animalType + " requires food every day.");
+		System.out.println();
 		System.out.println("This " + animalType + " currently has a hunger level of: " + hungerValue);
-		System.out.println(balance);
+		Speaker.speak("This " + animalType + " currently has a hunger level of: " + hungerValue);
+		System.out.println();
+		System.out.println("Your current balance is: " + Main.zooBalance);
+		SpaceAdder.addSpace();
 		
 		
 		
@@ -45,8 +49,8 @@ public class Zebra extends Animal{
 	@Override
 	public void sell() {
 		super.sell();
-		System.out.println("How will you ever live with yourself? Anyways, you're up to: $" + balance);
-		System.out.println(balance);
+		System.out.println("How will you ever live with yourself? Anyways, you're up to: $" + Main.zooBalance);
+		System.out.println(Main.zooBalance);
 		
 	}
 
