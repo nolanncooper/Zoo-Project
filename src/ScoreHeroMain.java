@@ -10,18 +10,23 @@ public class ScoreHeroMain {
 	public static String computerTeam = "";
 	public static String [] playerSheetsArray = new String [139];
 	public static int teamLo = 0;
-	public static void ScoreHeroRun(int win) throws IOException {
+	public static void ScoreHeroRun() throws IOException {
 		instructions();
 		teamSelect();
 		play();
 	}
 	public static void instructions() {
 		System.out.println("Welcome to Score Hero! The object of the game is simple: score more goals than the other team! Each team will be given 5 penalty shots, and if the game is still tied after 5 shots the game will be taken to sudden death. Beating the opposition goalkeeper is a difficult task, but by utilizing the power shot, chip shot, and finesse shot, you could improve your chances of scoring.");
+		Speaker.speak("Welcome to Score Hero! The object of the game is simple: score more goals than the other team! Each team will be given 5 penalty shots, and if the game is still tied after 5 shots the game will be taken to sudden death. Beating the opposition goalkeeper is a difficult task, but by utilizing the power shot, chip shot, and finesse shot, you could improve your chances of scoring.");
 		System.out.println("If you need a run down of the controls, type 'yes', if not, type 'no'.");
+		Speaker.speak("If you need a run down of the controls, type 'yes', if not, type 'no'.");
+
 		Scanner userInput = new Scanner(System.in);
 		String controlsOpt = userInput.nextLine();
 		if(controlsOpt.equals("yes")) {
 			System.out.println("Don't worry, the controls are pretty simple. If you have played fifa before, this game uses the same controls.");
+			Speaker.speak("Don't worry, the controls are pretty simple. If you have played fifa before, this game uses the same controls.");
+
 			System.out.println("For a normal shot: enter 'b'");
 			System.out.println("For a power shot: enter 'bb'");
 			System.out.println("For a chip shot: enter 'lb'");
@@ -30,6 +35,7 @@ public class ScoreHeroMain {
 		}
 		if(controlsOpt.equals("no")){
 			System.out.println("Perfect, now let's get to it!");
+			Speaker.speak("Perfect, now let's get to it!");
 		}
 	}
 	public static void teamSelect() throws IOException {
@@ -39,12 +45,15 @@ public class ScoreHeroMain {
 		}
 		
 		System.out.println("You'll be competing with some of the greatest teams the football world has ever seen. Press enter to view the available teams.");
+		Speaker.speak("You'll be competing with some of the greatest teams the football world has ever seen. Press enter to view the available teams.");
 		Scanner blah = new Scanner(System.in);
 		String bla = blah.nextLine();
 		for(int i = 0; i < playerSheetsArray.length; i+=7) {
 			System.out.println(playerSheetsArray[i]);
 		}
 		System.out.println("To select the team you would like to use, simply input its name.");
+		Speaker.speak("To select the team you would like to use, simply input its name.");
+
 		Scanner teamInput = new Scanner(System.in);
 		userTeam = teamInput.nextLine();
 		SpaceAdder.addSpace();
@@ -55,7 +64,10 @@ public class ScoreHeroMain {
 			}
 		}
 		System.out.println("You have selected the team: " + userTeam);
+		Speaker.speak("You have selected the team: " + userTeam);
 		System.out.println("This team includes the following superstars: ");
+		Speaker.speak("This team includes the following superstars: ");
+
 		for(int x = (teamLo+1); x < (teamLo + 6); x++) {
 			System.out.print(playerSheetsArray[x] + ". ");
 		}
@@ -68,17 +80,20 @@ public class ScoreHeroMain {
 		}
 		computerTeam = teams[teamC];
 		System.out.println("The team you'll be playing against is: " + computerTeam);
+		Speaker.speak("The team you'll be playing against is: " + computerTeam);
 	}
 	public static void play() {
 		int playerCounter = 0;
 		int computerCounter = 0;
 		System.out.println();
 		System.out.println("Time to play! Remember the highest number of penalties scored after 5 shots wins. If it's a tie, we go into sudden death.");
+		Speaker.speak("Time to play! Remember the highest number of penalties scored after 5 shots wins. If it's a tie, we go into sudden death.");
 
 		ScoreHeroScreen mainScreen = new ScoreHeroScreen();
 		// user shootout
 		for(int i = 0; i < 5; i++) {
 			System.out.println("Taking the shot is: " + playerSheetsArray[(teamLo+1)+i]);
+			Speaker.speak("Taking the shot is: " + playerSheetsArray[(teamLo+1)+i]);
 			System.out.println("Choose the type of shot.");
 			Scanner userI = new Scanner(System.in);
 			String shotType = userI.nextLine();
@@ -136,8 +151,10 @@ public class ScoreHeroMain {
 			shotCount++;
 			mainScreen.printScreen();
 			System.out.println("Number of shots taken : " + shotCount);
+			Speaker.speak("Number of shots taken : " + shotCount);
 			System.out.println("Number of Goals Scored: " + userGoals);
-			SpaceAdder.addSpace();
+			Speaker.speak("Number of Goals Scored: " + userGoals);
+
 			
 		}
 		
@@ -219,15 +236,23 @@ public class ScoreHeroMain {
 		if(userGoals > computerGoals) {
 			System.out.println();
 			System.out.println("YOU'VE DONE IT!");
+			Speaker.speak("YOU'VE DONE IT!");
 			System.out.println(userTeam + " ARE THE CHAMPIONS OF THE WORLD!");
+			Speaker.speak(userTeam + " ARE THE CHAMPIONS OF THE WORLD!");
+
+
+			Main.zooBalance+=1000;
 		}
 		if(computerGoals > userGoals) {
 			System.out.println();
 			System.out.println("Better luck next time. :(");
+			
+			Main.zooBalance-=1000;
 		}
 		if(userGoals == computerGoals) {
 			System.out.println();
 			System.out.println("On to sudden Death!");
+			Speaker.speak("On to sudden Death!");
 			boolean boot = false;
 			int i = 0;
 			while(!boot) {
@@ -372,12 +397,14 @@ public class ScoreHeroMain {
 				if(computerGoals > userGoals) {
 					System.out.println();
 					System.out.println("That's too bad. Better Luck Next Time. ");
+					Main.zooBalance-=1000;
 					boot = true;
 				}
 				if(userGoals > computerGoals) {
 					System.out.println();
 					System.out.println("YOU'VE DONE IT!");
 					System.out.println(userTeam + " ARE THE CHAMPIONS OF THE WORLD!");
+					Main.zooBalance+=1000;
 					boot = true;
 				}
 			}
