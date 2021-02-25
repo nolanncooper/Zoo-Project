@@ -80,16 +80,31 @@ public class WarRunner {
 			System.out.println();
 			if(player1Deck.getDeck().size() == 52) {
 				System.out.println("PLAYER 1 HAS WON IT!!!");
+				Speaker.speak("Player 1 has won it!");
+				Main.zooBalance+=750;
+				
 			}
 			if(player2Deck.getDeck().size() == 52) {
 				System.out.println("PLAYER 2 HAS WON IT!!!");
+				Speaker.speak("Player 2 has won it!");
+				System.out.println("Better luck next time... :(");
+				Main.zooBalance-=750;
+
 			}
 
 			}
 	}
 	public static void instructions() {
 		System.out.println("Welcome to the game of war. A deck of 52 cards will be divided evenly between 2 players. Each player will play one card at a time and whichever");
+		Speaker.speak("Welcome to the game of war. A deck of 52 cards will be divided evenly between 2 players. Each player will play one card at a time and whichever");
+		
 		System.out.println("contains the highest value will take the cards. In the event of a tie, the next round of cards will determine the winner.");
+		Speaker.speak("contains the highest value will take the cards. In the event of a tie, the next round of cards will determine the winner.");
+
 		System.out.println("The game is over when one player runs out of cards. Now on with it!");
+		Speaker.speak("The game is over when one player runs out of cards. Now on with it!");
+
+		System.out.println("You are player 1...");
+		Speaker.speak("You are player 1...");
 	}
 }
