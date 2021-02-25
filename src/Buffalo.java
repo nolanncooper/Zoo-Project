@@ -24,7 +24,7 @@ public class Buffalo extends Animal{
 	public void collectItems() {
 		super.collectItems();
 		System.out.println("This " + animalType + " will produce $" + (numberOf*income) + " per opening.");
-		System.out.println("Your current balance is: " + balance);
+		System.out.println("Your current balance is: " + Main.zooBalance);
 		
 		
 	}
@@ -33,8 +33,13 @@ public class Buffalo extends Animal{
 	public void feed() {
 		super.feed();
 		System.out.println("A " + animalType + " requires food every day.");
+		Speaker.speak("A " + animalType + " requires food every day.");
+		System.out.println();
 		System.out.println("This " + animalType + " currently has a hunger level of: " + hungerValue);
-		System.out.println("Your current balance is: " + balance);
+		Speaker.speak("This " + animalType + " currently has a hunger level of: " + hungerValue);
+		System.out.println();
+		System.out.println("Your current balance is: " + Main.zooBalance);
+		SpaceAdder.addSpace();
 		
 		
 		
@@ -44,8 +49,13 @@ public class Buffalo extends Animal{
 	@Override
 	public void sell() {
 		super.sell();
-		System.out.println("How will you ever live with yourself? Anyways, you're up to: $" + balance);
-		System.out.println("Your current balance is: " + balance);
+		System.out.println();
+		System.out.println("How will you ever live with yourself? Anyways, you're up to: $" + Main.zooBalance);
+		Speaker.speak("How will you ever live with yourself? Anyways, you're up to: $" + Main.zooBalance);
+		System.out.println();
+		System.out.println("Your current balance is: " + Main.zooBalance);
+		SpaceAdder.addSpace();
+		
 	}
 
 	@Override
