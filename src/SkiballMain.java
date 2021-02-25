@@ -43,21 +43,34 @@ public class SkiballMain {
 
 	public static void explainGame() {
 		System.out.println("Hello Contestant! Today you will be playing the fantastic game of ski-ball! The object of the game is simple: try to score as many points as possible.");
+		Speaker.speak("Hello Contestant! Today you will be playing the fantastic game of ski-ball! The object of the game is simple: try to score as many points as possible.");
+
 		System.out.println("There are 12 different targets ranging from 25 to 50 to 100 points. The greater the amount of points available, the harder it is to hit that target.");
+		Speaker.speak("There are 12 different targets ranging from 25 to 50 to 100 points. The greater the amount of points available, the harder it is to hit that target.");
+
 		System.out.println("You will be given a choice to select how many attempts you get, and with each attempt you will also have to decide how many points to go for.");
+		Speaker.speak("You will be given a choice to select how many attempts you get, and with each attempt you will also have to decide how many points to go for.");
+
 		System.out.println("And without further adieu, let the game begin!");
+		Speaker.speak("And without further adieu, let the game begin!");
+
 		System.out.println();
 	}
 	
 	public static void playGame() {
 		System.out.println("Would you like 3, 6, or 9 attempts?");
+		Speaker.speak("Would you like 3, 6, or 9 attempts?");
+
+		
 		ballCount = userInput.nextInt();
 		System.out.println(ballCount + " balls coming right up!");
+		Speaker.speak(ballCount + " balls coming right up!");
 		System.out.println();
 		if(ballCount == 3) {
 			for(int i = 0; i < 3; i++) {
 				System.out.println();
 				System.out.println("You have " + (ballCount) + " shots remaining.");
+				Speaker.speak("You have " + (ballCount) + " shots remaining.");
 				System.out.println("Are you going for 100 points, 50 points or 25 points?");
 				response = userInput.nextInt();
 				if(response == 100) {
@@ -89,6 +102,8 @@ public class SkiballMain {
 			for(int i = 0; i < 6; i++) {
 				System.out.println();
 				System.out.println("You have " + (ballCount) + " shots remaining.");
+				Speaker.speak("You have " + (ballCount) + " shots remaining.");
+
 				System.out.println("Are you going for 100 points, 50 points or 25 points?");
 				response = userInput.nextInt();
 				if(response == 100) {
@@ -120,6 +135,8 @@ public class SkiballMain {
 			for(int i = 0; i < 9; i++) {
 				System.out.println();
 				System.out.println("You have " + (ballCount) + " shots remaining.");
+				Speaker.speak("You have " + (ballCount) + " shots remaining.");
+
 				System.out.println("Are you going for 100 points, 50 points or 25 points?");
 				response = userInput.nextInt();
 				if(response == 100) {
@@ -151,6 +168,17 @@ public class SkiballMain {
 		System.out.println("______________________________________________________________________________________________________");
 		System.out.println();
 		System.out.println("Well done! You scored a total of " + pointCounter + " points.");
+		Speaker.speak("Well done! You scored a total of " + pointCounter + " points.");
+		if(pointCounter >= 100) {
+			System.out.println("Looks like you've made some money...");
+			Speaker.speak("Looks like you've made some money...");
+			Main.zooBalance+=500;
+		}
+		if(pointCounter < 100) {
+			System.out.println("Say goodbye to your cash... ");
+			Speaker.speak("Say goodbye to your cash... ");
+			Main.zooBalance-=500;
+		}
 	}
 	
 	public static void displayGame() {
