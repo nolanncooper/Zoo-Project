@@ -29,8 +29,8 @@ public class Main {
 		zooBalance = userInput.nextInt();
 		System.out.println("Thank you for your investment, I hope you won't regret it. In order to get you on your feet, you have been gifted 1 buffalo + 1 zebra.");
 		Speaker.speak("Thank you for your investment, I hope you won't regret it. In order to get you on your feet, you have been gifted 1 buffalo + 1 zebra.");
-		System.out.println("There are seven different species of animals that you can add to your zoo; However, your zoo is currently a level 1 zoo, meaning you are unable to acquire any animals other than buffalo and zebra.");
-		Speaker.speak("There are seven different species of animals that you can add to your zoo; However, your zoo is currently a level 1 zoo, meaning you are unable to acquire any animals other than buffalo and zebra.");
+		System.out.println("There are seven different species of animals that you can add to your zoo; However, your zoo is currently a level 1 zoo, meaning you are unable to acquire any animals other than buffalo and zebra. You can only purchase animal types you already own.");
+		Speaker.speak("There are seven different species of animals that you can add to your zoo; However, your zoo is currently a level 1 zoo, meaning you are unable to acquire any animals other than buffalo and zebra. You can only purchase animal types you already own");
 		
 	}
 	public static void newAnimals() throws IOException {
@@ -89,8 +89,8 @@ public class Main {
 			String animalInput = stringInput.nextLine();
 			SpaceAdder.addSpace();
 
-			System.out.println("After reviewing the finances you have a few options: 1) Feed your animal, 2) Sell your animal, 3) Purchase a new animal, 4) Collect your income, 5) Just plain quit the game.");
-			Speaker.speak("After reviewing the finances you have a few options: 1) Feed your animal, 2) Sell your animal, 3) Purchase a new animal, 4) Collect your income, 5) Just plain quit the game.");
+			System.out.println("1) Feed your animal, 2) Sell your animal, 3) Purchase a new animal, 4) Collect your income, 5) Just plain quit the game.");
+			Speaker.speak("1) Feed your animal, 2) Sell your animal, 3) Purchase a new animal, 4) Collect your income, 5) Just plain quit the game.");
 			System.out.println();
 			System.out.println("Alternatively, you could hit the casino and try not to blow all your cash... " );
 			Speaker.speak("Alternatively, you could hit the casino and try not to blow all your cash... ");
@@ -134,10 +134,13 @@ public class Main {
 			}
 			if(actionChoice == 6) {
 				if(animalInput.equals(buff.getAnimalType())) {
-					Casino.CasinoMain(buff.getBalance());
+					Casino.CasinoMain();
+					zeb.setBalance(zooBalance);
+
 				}
 				if(animalInput.equals(zeb.getAnimalType())) {
-					Casino.CasinoMain(zeb.getBalance());
+					Casino.CasinoMain();
+					zeb.setBalance(zooBalance);
 				}
 			}
 			System.out.println();
@@ -209,6 +212,9 @@ public class Main {
 		
 		
 	}
-	
+	public static void setBalance(int n )
+	{
+		
+	}
 
 }
